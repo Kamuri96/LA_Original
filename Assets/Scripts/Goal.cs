@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -19,7 +18,19 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "goal")
+        if (other.gameObject.name == "key")
+        {
+            if(SceneManager.GetActiveScene().name == "Main1")
+            {
+                SceneManager.LoadScene("Main2");
+            }
+            if (SceneManager.GetActiveScene().name == "Main2")
+            {
+                SceneManager.LoadScene("Main3");
+            }
+        }
+
+        if (other.gameObject.name == "goal")
         {
             SceneManager.LoadScene("Clear");
         }

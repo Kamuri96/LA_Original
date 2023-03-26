@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
                 Debug.Log("Can Through");
                 Vector3 targetPosition = transform.position + direction * moveDistance;
                 StartCoroutine(MoveCoroutine(targetPosition));
-                Destroy(hit.collider.gameObject,1.0f);
+                Destroy(hit.collider.gameObject,0.5f);
             }
             // 障害物とプレイヤーの色が一致しない場合、プレイヤーは動かない
             else

@@ -5,12 +5,14 @@ using UnityEngine;
 public class ReverseColor : MonoBehaviour
 {
     Color currentColor;
-    Color Blue = new Color(0.192f, 0.494f, 0.8f, 1f);
-    Color Red = new Color(0.773f, 0.149f, 0.235f, 1f);
-    Color Yellow = new Color(0.937f, 0.816f, 0.388f, 1f);
-    Color Purple = new Color(0.482f, 0.271f, 0.671f, 1f);
-    Color Orange = new Color(0.89f, 0.506f, 0.392f, 1f);
-    Color Green = new Color(0.286f, 0.698f, 0.49f, 1f);
+    Color blue = new Color(0.192f, 0.494f, 0.8f, 1f);
+    Color red = new Color(0.773f, 0.149f, 0.235f, 1f);
+    Color yellow = new Color(0.937f, 0.816f, 0.388f, 1f);
+    Color purple = new Color(0.482f, 0.271f, 0.671f, 1f);
+    Color orange = new Color(0.89f, 0.506f, 0.392f, 1f);
+    Color green = new Color(0.286f, 0.698f, 0.49f, 1f);
+    Color white = new Color(1f, 1f, 1f);
+    Color black = new Color(0f, 0f, 0f);
 
     void Start()
     {
@@ -29,29 +31,37 @@ public class ReverseColor : MonoBehaviour
     //補色にする関数
     Color ComplementaryColor(Color color)
     {
-        if (color == Red)
+        if (color == red)
         {
-            return Green;
+            return green;
         }
-        else if (color == Green)
+        else if (color == green)
         {
-            return Red;
+            return red;
         }
-        else if (color == Blue)
+        else if (color == blue)
         {
-            return Orange;
+            return orange;
         }
-        else if (color == Orange)
+        else if (color == orange)
         {
-            return Blue;
+            return blue;
         }
-        else if (color == Purple)
+        else if (color == purple)
         {
-            return Yellow;
+            return yellow;
         }
-        else if (color == Yellow)
+        else if (color == yellow)
         {
-            return Purple;
+            return purple;
+        }
+        else if (color == white)
+        {
+            return black;
+        }
+        else if (color == black)
+        {
+            return white;
         }
         else
         {

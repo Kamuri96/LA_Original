@@ -16,9 +16,9 @@ public class Goal : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "key")
+        if (other.gameObject.tag == "key")
         {
             if(SceneManager.GetActiveScene().name == "Main1")
             {
@@ -30,7 +30,7 @@ public class Goal : MonoBehaviour
             }
         }
 
-        if (other.gameObject.name == "goal")
+        if (other.gameObject.tag == "goal")
         {
             SceneManager.LoadScene("Clear");
         }

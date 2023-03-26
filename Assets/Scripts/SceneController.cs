@@ -5,20 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]GameObject tutorial;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Skip()
+    public void GameStart()
     {
         SceneManager.LoadScene("Main1");
+    }
+
+    public void Tutorial()
+    {
+        tutorial.SetActive(true);
+    }
+
+    public void TutorialExit()
+    {
+        tutorial.SetActive(false);
     }
 }

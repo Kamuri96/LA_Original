@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    private float moveDistance = 2.22f;
+    private float moveDistance;
     private bool isMoving = false;
     private int wallLayer;
 
     void Start()
     {
         wallLayer = LayerMask.GetMask("Obstacle");
+
+        if(SceneManager.GetActiveScene().name == "Main1")
+        {
+            moveDistance = 2.22f;
+        }
+        if(SceneManager.GetActiveScene().name == "Main2" || SceneManager.GetActiveScene().name == "Main3")
+        {
+            moveDistance = 1.82f;
+        }
     }
 
     void Update()
@@ -71,7 +81,7 @@ public class Player : MonoBehaviour
                 Debug.Log("Can Through");
                 Vector3 targetPosition = transform.position + direction * moveDistance;
                 StartCoroutine(MoveCoroutine(targetPosition));
-                //return;
+                Destroy(hit.collider.gameObject,1.0f);
             }
             // 障害物とプレイヤーの色が一致しない場合、プレイヤーは動かない
             else

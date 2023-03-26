@@ -8,13 +8,14 @@ public class ColorChange : MonoBehaviour
     public Color shelColor;
     public Color playerColor;
 
-    Color Blue = new Color(0.192f, 0.494f, 0.8f, 1f);
-    Color Red = new Color(0.773f, 0.149f, 0.235f, 1f);
-    Color Yellow = new Color(0.937f, 0.816f, 0.388f, 1f);
-    Color Purple = new Color(0.482f, 0.271f, 0.671f, 1f);
-    Color Orange = new Color(0.89f, 0.506f, 0.392f, 1f);
-    Color Green = new Color(0.286f, 0.698f, 0.49f, 1f);
-    Color White = new Color(1f,1f,1f);
+    Color blue = new Color(0.192f, 0.494f, 0.8f, 1f);
+    Color red = new Color(0.773f, 0.149f, 0.235f, 1f);
+    Color yellow = new Color(0.937f, 0.816f, 0.388f, 1f);
+    Color purple = new Color(0.482f, 0.271f, 0.671f, 1f);
+    Color orange = new Color(0.89f, 0.506f, 0.392f, 1f);
+    Color green = new Color(0.286f, 0.698f, 0.49f, 1f);
+    Color white = new Color(1f, 1f, 1f);
+    Color black = new Color(0f, 0f, 0f);
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,49 +24,55 @@ public class ColorChange : MonoBehaviour
         shelColor = shel.GetComponent<Renderer>().material.color;
         playerColor = GetComponent<Renderer>().material.color;
 
-        if(playerColor == White)
+        if(playerColor == white)
         {
             playerColor = shelColor;
         }
 
         //青+赤＝紫・青＋黄色＝緑
-        if(playerColor == Blue)
+        else if(playerColor == blue)
         {
-            if(shelColor == Red)
+            if(shelColor == red)
             {
-                playerColor = Purple;
+                playerColor = purple;
             }
-            if(shelColor == Yellow)
+            if(shelColor == yellow)
             {
-                playerColor = Green;
+                playerColor = green;
             }
         }
         //赤＋青＝紫・赤＋黄色＝オレンジ
-        if(playerColor == Red)
+        else if(playerColor == red)
         {
-            if(shelColor == Blue)
+            if(shelColor == blue)
             {
-                playerColor = Purple;
+                playerColor = purple;
             }
-            if(shelColor == Yellow)
+            if(shelColor == yellow)
             {
-                playerColor = Orange;
+                playerColor = orange;
             }
         }
         
         //黄＋青＝緑・黄色＋赤＝オレンジ
-        if(playerColor == Yellow)
+        else if(playerColor == yellow)
         {
-            if(shelColor == Blue)
+            if(shelColor == blue)
             {
-                playerColor = Green;
+                playerColor = green;
             }
-            if(shelColor == Red)
+            if(shelColor == red)
             {
-                playerColor = Orange;
+                playerColor = orange;
             }
         }
 
+        //3色混ざると黒
+        else if(playerColor == purple || playerColor == green || playerColor == orange)
+        {
+                playerColor = black;
+        }
+        
         GetComponent<Renderer>().material.color = playerColor;
 
         shel.SetActive(false);

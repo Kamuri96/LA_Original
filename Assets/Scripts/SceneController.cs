@@ -21,4 +21,19 @@ public class SceneController : MonoBehaviour
     {
         tutorial.SetActive(false);
     }
+
+    public void Reload1()
+    {
+        SceneManager.LoadScene("Main1");
+    }
+
+    public void Reload2()
+    {
+        SceneManager.LoadScene("Main2");
+    }
+
+    public void Reload3()
+    {
+        SceneManager.LoadScene("Main3");
+    }
 }
